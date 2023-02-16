@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 
-function NavBar() {
+function NavBar({ user, setUser }) {
 
 
-  function handleLogout({ setUser }) {
-    fetch("/logout", { method: "DELETE" }).then((r) => {
+  function handleLogout() {
+    fetch("/signout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
         setUser(null);
       }
@@ -16,16 +16,14 @@ function NavBar() {
     <nav className="nav">
         <Link to="/" className="site-title">Home</Link>
     <div>
-        <Link to="/gamelist">Game List</Link>
-        <Link to="/gamecollection">Game List</Link>
+        <Link to="gamelist">Game List</Link>
+        <Link to="gamecollection">Game Collection</Link>
     
-        <li>
+        <ul>
           <button onClick={handleLogout}>Logout</button>
-        </li>
+        </ul>
     </div>
     </nav>
-    
-    
     
   );
 }

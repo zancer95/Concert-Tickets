@@ -1,6 +1,8 @@
 import { useState } from "react";
 import FormSignIn from "../FormSignIn";
 import FormSignUp from "../FormSignUp";
+
+
 function Login({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
   return (
@@ -11,7 +13,7 @@ function Login({ onLogin }) {
           <FormSignIn onLogin={onLogin} />
           <hr className="solid"/>
           <p>
-            Not A User? Become One. &nbsp;
+            Join us !  &nbsp;
             <button onClick={() => setShowLogin(false)}>
               Sign Up
             </button>

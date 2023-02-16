@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function FormSignIn({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const navigate = useNavigate()
+  
   function handleSubmit(e) {
     e.preventDefault();
+    setErrors([]);
     fetch("/signin", {
       method: "POST",
       headers: {
@@ -18,8 +22,9 @@ function FormSignIn({ onLogin }) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => onLogin(user));
+        navigate("/gamecollection")
       } else {
-        r.json().then((flaw) => setErrors(flaw.errors));
+        r.json().then((err) => setErrors(err.errors));
       }
     });
   }

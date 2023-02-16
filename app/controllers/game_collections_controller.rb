@@ -5,11 +5,7 @@ class GameCollectionsController < ApplicationController
     end
     
     def create
-        # gamecollection = GameCollection.create!(gamecollections_params)
-        # render json: gamecollection, status: :created
-        user = User.find(params[:user_id])
-        game = Game.find(params[:game_id])
-        gamecollection = user.game_collections.create(game: game)
+        gamecollection = @current_user.game_collections.create!(gamecollections_params)
         render json: gamecollection, status: :created
     end
 
@@ -26,3 +22,7 @@ class GameCollectionsController < ApplicationController
       end
 
 end
+        # user = User.find(params[:user_id])
+        # game = Game.find(params[:game_id])
+        # gamecollection = user.game_collections.create(game: game)
+        # render json: gamecollection, status: :created

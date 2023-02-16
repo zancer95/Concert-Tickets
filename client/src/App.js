@@ -4,7 +4,7 @@ import GameCollection from './GameCollection';
 import GameList from './pages/GameList';
 import Login from './pages/Login';
 import NavBar from './NarBar';
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 
 
@@ -20,14 +20,16 @@ function App() {
   if (!user) return <Login onLogin={setUser} />;
 
   return (
+    
     <>
-    <NavBar />
+    <NavBar user={user} setUser={setUser}/>
     <div className="container" >
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/gamelist" element={<GameList />} />
-        <Route path="/gamecollection" element={<GameCollection />} />
+        <Route path='gamecollection' element={<GameCollection/>} />
+        <Route path='gamelist' element={<GameList/>} />
+        <Route path='/' element={<Login/>} />
       </Routes>
+    
     </div>
     </>
   );
