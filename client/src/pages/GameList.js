@@ -10,17 +10,16 @@ function GameList(props) {
   }, []);
 
   const handleAddToCollection = (gameId) => {
-    const userId = props.user.id; 
     fetch('/game_collections', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ user_id: userId, game_id: gameId })
+      body: JSON.stringify({ game_id: gameId })
     })
       .then(res => res.json())
       .then(data => {
-        if (data.status === 'success') {
+        if (data.ok) {
           console.log('Game added to collection!');
           }
         });
@@ -28,7 +27,7 @@ function GameList(props) {
 
   return (
     <div>
-      <h1>Games</h1>
+      <h1>Game List</h1>
       <ul>
         {games.map(game => (
           <h4 key={game.id}>

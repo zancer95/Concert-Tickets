@@ -1,33 +1,35 @@
 import { useState } from "react";
 import FormSignIn from "../FormSignIn";
 import FormSignUp from "../FormSignUp";
+
+
 function Login({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
   return (
     <>
       {showLogin ? (
         <>
-          <h3>Login</h3>
+        <h1 className="title">Favorite-Game</h1>
+          <h3 className="semititle">Login</h3>
           <FormSignIn onLogin={onLogin} />
-          <hr className="solid"/>
-          <p>
-            Not A User? Become One. &nbsp;
+          <div className="container">
+            <p>Join us ! &nbsp;</p>
             <button onClick={() => setShowLogin(false)}>
               Sign Up
             </button>
-          </p>
+          </div>
         </>
       ) : (
         <>
-          <h3>SignUp</h3>
+        <h1 className="title">Favorite-Game</h1>
+          <h3 className="semititle">SignUp</h3>
           <FormSignUp onLogin={onLogin} />
-          <hr class='solid'/>
-          <p>
-            Access Profile &nbsp;
+          <div className="container">
+            <p>Access Profile &nbsp;</p>
             <button onClick={() => setShowLogin(true)}>
               Sign In
             </button>
-          </p>
+          </div>
         </>
       )}
     </>
