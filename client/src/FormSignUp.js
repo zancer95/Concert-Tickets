@@ -22,7 +22,7 @@ function FormSignUp({ onLogin }) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => onLogin(user));
-        navigate("/login")
+        navigate("/")
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

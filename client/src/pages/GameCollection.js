@@ -47,26 +47,3 @@ function GameCollection() {
 }
 
 export default GameCollection;
-  // useEffect(() => {
-  //   fetch(`/games/${id}`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setGameCollection(data)
-  //       console.log(data)
-  //     });
-  // }, []);
-
-    // const handleRemoveFromCollection = (gameCollectionId) => {
-  //   fetch(`/users/${gameCollectionId}`, {
-  //     method: 'DELETE',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       if (data.ok) {
-  //         setGameCollection(gameCollection.filter(gc => gc.id !== gameCollectionId));
-  //       }
-  //     });
-  // };
