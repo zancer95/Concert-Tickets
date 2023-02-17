@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from "react";
-import GameCollection from './GameCollection';
+import GameCollection from './pages/GameCollection';
 import GameList from './pages/GameList';
 import Login from './pages/Login';
 import NavBar from './NarBar';
@@ -25,7 +25,7 @@ function App() {
     <NavBar user={user} setUser={setUser}/>
     <div className="container" >
       <Routes>
-        <Route path='gamecollection' element={<GameCollection/>} />
+        <Route path='games/:id' element={<GameCollection/>} />
         <Route path='gamelist' element={<GameList/>} />
         <Route path='/' element={<Login/>} />
       </Routes>

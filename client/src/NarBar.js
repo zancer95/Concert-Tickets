@@ -17,7 +17,7 @@ function NavBar({ user, setUser }) {
         <Link to="/" className="site-title">Home</Link>
     <div>
         <Link to="gamelist">Game List</Link>
-        <Link to="gamecollection">Game Collection</Link>
+        <Link to={`games/${user.id}`}>Game Collection</Link>
     
         <ul>
           <button onClick={handleLogout}>Logout</button>

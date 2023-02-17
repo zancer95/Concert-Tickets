@@ -19,7 +19,7 @@ function GameList(props) {
     })
       .then(res => res.json())
       .then(data => {
-        if (data.status === 'success') {
+        if (data.ok) {
           console.log('Game added to collection!');
           }
         });
